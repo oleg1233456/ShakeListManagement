@@ -15,6 +15,28 @@
 		4E34D0161C7AF1B600CE563A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E34D0141C7AF1B600CE563A /* LaunchScreen.storyboard */; };
 		4E34D0211C7AF1B600CE563A /* ShakeListsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E34D0201C7AF1B600CE563A /* ShakeListsTests.m */; };
 		4E34D02C1C7AF1B600CE563A /* ShakeListsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E34D02B1C7AF1B600CE563A /* ShakeListsUITests.m */; };
+		4E34D03A1C7AF1C800CE563A /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D0391C7AF1C800CE563A /* Firebase.framework */; };
+		4E34D03C1C7AF2C500CE563A /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D03B1C7AF2C500CE563A /* libicucore.tbd */; };
+		4E34D03E1C7AF30200CE563A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D03D1C7AF30200CE563A /* libc++.tbd */; };
+		4E34D0401C7AF31600CE563A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D03F1C7AF31600CE563A /* CFNetwork.framework */; };
+		4E34D0421C7AF32600CE563A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D0411C7AF32600CE563A /* Security.framework */; };
+		4E34D0441C7AF33A00CE563A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D0431C7AF33A00CE563A /* SystemConfiguration.framework */; };
+		4E35639D1C7CADC500512AD4 /* PhraseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E35639C1C7CADC500512AD4 /* PhraseTableViewCell.m */; };
+		4E35639F1C7CB84C00512AD4 /* add_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E35639E1C7CB84C00512AD4 /* add_icon.png */; };
+		4E673AFE1C7D8A0900511E79 /* MyShakeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E673AFD1C7D8A0900511E79 /* MyShakeListViewController.m */; };
+		4E673B001C7D907E00511E79 /* back_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E673AFF1C7D907E00511E79 /* back_icon.png */; };
+		4E673B021C7D99AB00511E79 /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E673B011C7D99AB00511E79 /* profile_icon.png */; };
+		4E673B0A1C7DC31700511E79 /* ZFTokenField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E673B091C7DC31700511E79 /* ZFTokenField.m */; };
+		4E673B0C1C7DC3E000511E79 /* TokenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E673B0B1C7DC3E000511E79 /* TokenView.xib */; };
+		4EBD0D441C7C109D00D5B58F /* menu_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBD0D421C7C109D00D5B58F /* menu_icon.png */; };
+		4EBD0D471C7C10FC00D5B58F /* save_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBD0D461C7C10FC00D5B58F /* save_icon.png */; };
+		4EBD0D491C7C1E6700D5B58F /* line_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBD0D481C7C1E6700D5B58F /* line_img.png */; };
+		4EBD0D4C1C7C675D00D5B58F /* checkbox_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBD0D4A1C7C675D00D5B58F /* checkbox_off.png */; };
+		4EBD0D4D1C7C675D00D5B58F /* checkbox_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBD0D4B1C7C675D00D5B58F /* checkbox_on.png */; };
+		4EBD0D8E1C7CA63800D5B58F /* close_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBD0D8D1C7CA63800D5B58F /* close_icon.png */; };
+		4EC06B701C7CF62100B26F3D /* create_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EC06B6F1C7CF62100B26F3D /* create_btn.png */; };
+		4EC385F41C7D0A7300110B01 /* ShakeListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC385F31C7D0A7300110B01 /* ShakeListTableViewCell.m */; };
+		4EDA592D1C7CED44006271D4 /* setting_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EDA592C1C7CED44006271D4 /* setting_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +73,32 @@
 		4E34D0271C7AF1B600CE563A /* ShakeListsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShakeListsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E34D02B1C7AF1B600CE563A /* ShakeListsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShakeListsUITests.m; sourceTree = "<group>"; };
 		4E34D02D1C7AF1B600CE563A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E34D0391C7AF1C800CE563A /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../Firebase.framework; sourceTree = "<group>"; };
+		4E34D03B1C7AF2C500CE563A /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		4E34D03D1C7AF30200CE563A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		4E34D03F1C7AF31600CE563A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		4E34D0411C7AF32600CE563A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4E34D0431C7AF33A00CE563A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4E35639B1C7CADC500512AD4 /* PhraseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhraseTableViewCell.h; sourceTree = "<group>"; };
+		4E35639C1C7CADC500512AD4 /* PhraseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhraseTableViewCell.m; sourceTree = "<group>"; };
+		4E35639E1C7CB84C00512AD4 /* add_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_icon.png; sourceTree = "<group>"; };
+		4E673AFC1C7D8A0900511E79 /* MyShakeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyShakeListViewController.h; sourceTree = "<group>"; };
+		4E673AFD1C7D8A0900511E79 /* MyShakeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyShakeListViewController.m; sourceTree = "<group>"; };
+		4E673AFF1C7D907E00511E79 /* back_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_icon.png; sourceTree = "<group>"; };
+		4E673B011C7D99AB00511E79 /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
+		4E673B081C7DC31700511E79 /* ZFTokenField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFTokenField.h; sourceTree = "<group>"; };
+		4E673B091C7DC31700511E79 /* ZFTokenField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFTokenField.m; sourceTree = "<group>"; };
+		4E673B0B1C7DC3E000511E79 /* TokenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TokenView.xib; sourceTree = "<group>"; };
+		4EBD0D421C7C109D00D5B58F /* menu_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_icon.png; sourceTree = "<group>"; };
+		4EBD0D461C7C10FC00D5B58F /* save_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save_icon.png; sourceTree = "<group>"; };
+		4EBD0D481C7C1E6700D5B58F /* line_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line_img.png; sourceTree = "<group>"; };
+		4EBD0D4A1C7C675D00D5B58F /* checkbox_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_off.png; sourceTree = "<group>"; };
+		4EBD0D4B1C7C675D00D5B58F /* checkbox_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_on.png; sourceTree = "<group>"; };
+		4EBD0D8D1C7CA63800D5B58F /* close_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_icon.png; sourceTree = "<group>"; };
+		4EC06B6F1C7CF62100B26F3D /* create_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = create_btn.png; sourceTree = "<group>"; };
+		4EC385F21C7D0A7300110B01 /* ShakeListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeListTableViewCell.h; sourceTree = "<group>"; };
+		4EC385F31C7D0A7300110B01 /* ShakeListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeListTableViewCell.m; sourceTree = "<group>"; };
+		4EDA592C1C7CED44006271D4 /* setting_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +106,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E34D0441C7AF33A00CE563A /* SystemConfiguration.framework in Frameworks */,
+				4E34D0421C7AF32600CE563A /* Security.framework in Frameworks */,
+				4E34D0401C7AF31600CE563A /* CFNetwork.framework in Frameworks */,
+				4E34D03E1C7AF30200CE563A /* libc++.tbd in Frameworks */,
+				4E34D03C1C7AF2C500CE563A /* libicucore.tbd in Frameworks */,
+				4E34D03A1C7AF1C800CE563A /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,10 +159,17 @@
 				4E34D00A1C7AF1B600CE563A /* AppDelegate.m */,
 				4E34D00C1C7AF1B600CE563A /* ViewController.h */,
 				4E34D00D1C7AF1B600CE563A /* ViewController.m */,
+				4E673AFC1C7D8A0900511E79 /* MyShakeListViewController.h */,
+				4E673AFD1C7D8A0900511E79 /* MyShakeListViewController.m */,
 				4E34D00F1C7AF1B600CE563A /* Main.storyboard */,
 				4E34D0121C7AF1B600CE563A /* Assets.xcassets */,
 				4E34D0141C7AF1B600CE563A /* LaunchScreen.storyboard */,
+				4E673B0B1C7DC3E000511E79 /* TokenView.xib */,
 				4E34D0171C7AF1B600CE563A /* Info.plist */,
+				4E673B071C7DC31700511E79 /* TextFieldClasses */,
+				4E35639A1C7CAD8900512AD4 /* TableViewCell */,
+				4EBD0D3D1C7C0F6000D5B58F /* Resources */,
+				4E34D0451C7AF3B600CE563A /* Lib */,
 				4E34D0061C7AF1B600CE563A /* Supporting Files */,
 			);
 			path = ShakeLists;
@@ -138,6 +199,57 @@
 				4E34D02D1C7AF1B600CE563A /* Info.plist */,
 			);
 			path = ShakeListsUITests;
+			sourceTree = "<group>";
+		};
+		4E34D0451C7AF3B600CE563A /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				4E34D0431C7AF33A00CE563A /* SystemConfiguration.framework */,
+				4E34D0411C7AF32600CE563A /* Security.framework */,
+				4E34D03F1C7AF31600CE563A /* CFNetwork.framework */,
+				4E34D03D1C7AF30200CE563A /* libc++.tbd */,
+				4E34D03B1C7AF2C500CE563A /* libicucore.tbd */,
+				4E34D0391C7AF1C800CE563A /* Firebase.framework */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		4E35639A1C7CAD8900512AD4 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4E35639B1C7CADC500512AD4 /* PhraseTableViewCell.h */,
+				4E35639C1C7CADC500512AD4 /* PhraseTableViewCell.m */,
+				4EC385F21C7D0A7300110B01 /* ShakeListTableViewCell.h */,
+				4EC385F31C7D0A7300110B01 /* ShakeListTableViewCell.m */,
+			);
+			name = TableViewCell;
+			sourceTree = "<group>";
+		};
+		4E673B071C7DC31700511E79 /* TextFieldClasses */ = {
+			isa = PBXGroup;
+			children = (
+				4E673B081C7DC31700511E79 /* ZFTokenField.h */,
+				4E673B091C7DC31700511E79 /* ZFTokenField.m */,
+			);
+			path = TextFieldClasses;
+			sourceTree = "<group>";
+		};
+		4EBD0D3D1C7C0F6000D5B58F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4E673B011C7D99AB00511E79 /* profile_icon.png */,
+				4E673AFF1C7D907E00511E79 /* back_icon.png */,
+				4EC06B6F1C7CF62100B26F3D /* create_btn.png */,
+				4E35639E1C7CB84C00512AD4 /* add_icon.png */,
+				4EDA592C1C7CED44006271D4 /* setting_icon.png */,
+				4EBD0D8D1C7CA63800D5B58F /* close_icon.png */,
+				4EBD0D4A1C7C675D00D5B58F /* checkbox_off.png */,
+				4EBD0D4B1C7C675D00D5B58F /* checkbox_on.png */,
+				4EBD0D481C7C1E6700D5B58F /* line_img.png */,
+				4EBD0D421C7C109D00D5B58F /* menu_icon.png */,
+				4EBD0D461C7C10FC00D5B58F /* save_icon.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,8 +356,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E34D0161C7AF1B600CE563A /* LaunchScreen.storyboard in Resources */,
+				4EBD0D491C7C1E6700D5B58F /* line_img.png in Resources */,
+				4EDA592D1C7CED44006271D4 /* setting_icon.png in Resources */,
+				4E35639F1C7CB84C00512AD4 /* add_icon.png in Resources */,
+				4E673B021C7D99AB00511E79 /* profile_icon.png in Resources */,
+				4EC06B701C7CF62100B26F3D /* create_btn.png in Resources */,
+				4E673B0C1C7DC3E000511E79 /* TokenView.xib in Resources */,
+				4E673B001C7D907E00511E79 /* back_icon.png in Resources */,
+				4EBD0D471C7C10FC00D5B58F /* save_icon.png in Resources */,
+				4EBD0D441C7C109D00D5B58F /* menu_icon.png in Resources */,
+				4EBD0D8E1C7CA63800D5B58F /* close_icon.png in Resources */,
 				4E34D0131C7AF1B600CE563A /* Assets.xcassets in Resources */,
+				4EBD0D4D1C7C675D00D5B58F /* checkbox_on.png in Resources */,
 				4E34D0111C7AF1B600CE563A /* Main.storyboard in Resources */,
+				4EBD0D4C1C7C675D00D5B58F /* checkbox_off.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +396,10 @@
 			files = (
 				4E34D00E1C7AF1B600CE563A /* ViewController.m in Sources */,
 				4E34D00B1C7AF1B600CE563A /* AppDelegate.m in Sources */,
+				4E35639D1C7CADC500512AD4 /* PhraseTableViewCell.m in Sources */,
+				4E673AFE1C7D8A0900511E79 /* MyShakeListViewController.m in Sources */,
+				4EC385F41C7D0A7300110B01 /* ShakeListTableViewCell.m in Sources */,
+				4E673B0A1C7DC31700511E79 /* ZFTokenField.m in Sources */,
 				4E34D0081C7AF1B600CE563A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,8 +541,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ShakeLists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.neil.ShakeLists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -424,8 +557,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ShakeLists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.neil.ShakeLists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -498,6 +636,7 @@
 				4E34D0321C7AF1B600CE563A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E34D0331C7AF1B600CE563A /* Build configuration list for PBXNativeTarget "ShakeListsTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +645,7 @@
 				4E34D0351C7AF1B600CE563A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E34D0361C7AF1B600CE563A /* Build configuration list for PBXNativeTarget "ShakeListsUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +654,7 @@
 				4E34D0381C7AF1B600CE563A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
