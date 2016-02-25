@@ -10,7 +10,9 @@
 #import "PhraseTableViewCell.h"
 #import "MyShakeListViewController.h"
 #import <Firebase/Firebase.h>
+
 #import "ZFTokenField.h"
+#import "UIView+Toast.h"
 
 @interface ViewController () <ZFTokenFieldDataSource, ZFTokenFieldDelegate>
 @property (weak, nonatomic) IBOutlet ZFTokenField *tokenField;
@@ -80,14 +82,6 @@
 // Save and create a new shakelist.
 - (IBAction)createNewShakeList:(id)sender {
     
-    NSLog(@"title : %@", self.shakeListTitleTextField.text);                            // key
-    NSLog(@"save type : %d", (int)self.listSaveTypeSegment.selectedSegmentIndex);       // key
-    NSLog(@"NFSW Checked : %d", (int)nfsw_checked);                                     // key
-    NSLog(@"G-RATED Checked : %d", (int)g_rated_checked);                               // key
-    NSLog(@"Tag values : %@", self.tokens);                                             // array
-    NSLog(@"Phrase Selection : %d", (int)self.phraseSelectionSegment.selectedSegmentIndex); // key
-    NSLog(@"Phrase Array : %@", self.phraseArray);              // array
-
     NSMutableDictionary *shakeListData = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.shakeListTitleTextField.text, @"title", nil];
     [shakeListData setObject:[NSString stringWithFormat:@"%ld", self.listSaveTypeSegment.selectedSegmentIndex] forKey:@"type"];
     [shakeListData setObject:[NSString stringWithFormat:@"%d", (int)nfsw_checked] forKey:@"nfsw"];
@@ -95,11 +89,24 @@
     [shakeListData setObject:self.tokens forKey:@"tags"];
     [shakeListData setObject:[NSString stringWithFormat:@"%d", (int)self.phraseSelectionSegment.selectedSegmentIndex] forKey:@"phrase-selection"];
     [shakeListData setObject:self.phraseArray forKey:@"phrases"];
+
+    NSLog(@"shakelistdata result : \n %@", shakeListData);
     
     // Connect to firebase.
+    Firebase *ref = [[Firebase alloc] initWithUrl:@"https://develop-shakelist.firebaseio.com"];
     
+    Firebase *postRef = [ref childByAppendingPath:@"shake-lists"];
+    Firebase *post1Ref = [postRef childByAutoId];
+    [post1Ref setValue:shakeListData];
     
-    NSLog(@"shakelistdata result : \n %@", shakeListData);
+    [post1Ref setValue:shakeListData withCompletionBlock:^(NSError *error, Firebase *ref) {
+        if (error) {
+            [self.navigationController.view makeToast:@"Data could not be saved."];
+        } else {
+            [self.navigationController.view makeToast:@"Data saved successfully."];
+        }
+    }];
+    
     
     //    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MyShakeLIstController"];
     //    [self.navigationController pushViewController:controller animated:YES];

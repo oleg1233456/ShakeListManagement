@@ -37,6 +37,7 @@
 		4EC06B701C7CF62100B26F3D /* create_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EC06B6F1C7CF62100B26F3D /* create_btn.png */; };
 		4EC385F41C7D0A7300110B01 /* ShakeListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC385F31C7D0A7300110B01 /* ShakeListTableViewCell.m */; };
 		4EDA592D1C7CED44006271D4 /* setting_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EDA592C1C7CED44006271D4 /* setting_icon.png */; };
+		4EFF21031C7F043C000D5853 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF21021C7F043C000D5853 /* UIView+Toast.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,8 @@
 		4EC385F21C7D0A7300110B01 /* ShakeListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeListTableViewCell.h; sourceTree = "<group>"; };
 		4EC385F31C7D0A7300110B01 /* ShakeListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeListTableViewCell.m; sourceTree = "<group>"; };
 		4EDA592C1C7CED44006271D4 /* setting_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_icon.png; sourceTree = "<group>"; };
+		4EFF21011C7F043C000D5853 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		4EFF21021C7F043C000D5853 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,7 @@
 				4E34D0171C7AF1B600CE563A /* Info.plist */,
 				4E673B071C7DC31700511E79 /* TextFieldClasses */,
 				4E35639A1C7CAD8900512AD4 /* TableViewCell */,
+				4EFF21001C7F043C000D5853 /* Toast */,
 				4EBD0D3D1C7C0F6000D5B58F /* Resources */,
 				4E34D0451C7AF3B600CE563A /* Lib */,
 				4E34D0061C7AF1B600CE563A /* Supporting Files */,
@@ -250,6 +254,15 @@
 				4EBD0D461C7C10FC00D5B58F /* save_icon.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4EFF21001C7F043C000D5853 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				4EFF21011C7F043C000D5853 /* UIView+Toast.h */,
+				4EFF21021C7F043C000D5853 /* UIView+Toast.m */,
+			);
+			path = Toast;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EFF21031C7F043C000D5853 /* UIView+Toast.m in Sources */,
 				4E34D00E1C7AF1B600CE563A /* ViewController.m in Sources */,
 				4E34D00B1C7AF1B600CE563A /* AppDelegate.m in Sources */,
 				4E35639D1C7CADC500512AD4 /* PhraseTableViewCell.m in Sources */,
