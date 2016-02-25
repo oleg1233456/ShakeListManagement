@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *shakeListTitleTextField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *listSaveTypeSegment;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *phraseSelectionSegment;
+@property (weak, nonatomic) IBOutlet UILabel *phrasesLabel;
 @property (weak, nonatomic) IBOutlet UIButton *nfswCheckbox;
 @property (weak, nonatomic) IBOutlet UIButton *gRatedCheckbox;
 @property (nonatomic, strong) NSMutableArray *phraseArray;

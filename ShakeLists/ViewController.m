@@ -31,7 +31,9 @@
     self.tokenField.dataSource = self;
     self.tokenField.delegate = self;
     self.shakeListTitleTextField.delegate = self;
+    self.shakeListTitleTextField.tag = -100;
     [self.tokenField reloadData];
+    self.phrasesLabel.text = @"Phrases (0)";
     
     [self.view bringSubviewToFront:self.phraseTableView];
     
@@ -45,21 +47,12 @@
     }];
 }
 
-- (IBAction)sendFirst:(id)sender {
-    Firebase *fb = [[Firebase alloc] initWithUrl:@"https://develop-shakelist.firebaseio.com/condition"];
-    [fb setValue:@"first button"];
-}
-
-- (IBAction)sendSecond:(id)sender {
-    Firebase *fb = [[Firebase alloc] initWithUrl:@"https://develop-shakelist.firebaseio.com/condition"];
-    [fb setValue:@"second button"];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+// X button in tags textfield.
 - (void)tokenDeleteButtonPressed:(UIButton *)tokenButton
 {
     NSUInteger index = [self.tokenField indexOfTokenView:tokenButton.superview];
@@ -82,34 +75,77 @@
 // Save and create a new shakelist.
 - (IBAction)createNewShakeList:(id)sender {
     
-    NSMutableDictionary *shakeListData = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.shakeListTitleTextField.text, @"title", nil];
-    [shakeListData setObject:[NSString stringWithFormat:@"%ld", self.listSaveTypeSegment.selectedSegmentIndex] forKey:@"type"];
-    [shakeListData setObject:[NSString stringWithFormat:@"%d", (int)nfsw_checked] forKey:@"nfsw"];
-    [shakeListData setObject:[NSString stringWithFormat:@"%d", (int)g_rated_checked] forKey:@"g-rated"];
-    [shakeListData setObject:self.tokens forKey:@"tags"];
-    [shakeListData setObject:[NSString stringWithFormat:@"%d", (int)self.phraseSelectionSegment.selectedSegmentIndex] forKey:@"phrase-selection"];
-    [shakeListData setObject:self.phraseArray forKey:@"phrases"];
+    if ([self.shakeListTitleTextField.text isEqualToString:@""]) {
+        
+        [self setInputMessage:@"Please fill out title field.\n"];
+        [self.shakeListTitleTextField becomeFirstResponder];
+        
+    } else if (self.tokens.count == 0) {
+        
+        [self setInputMessage:@"Please fill out tags field.\n"];
+        [self.tokenField becomeFirstResponder];
+        
+    } else if (self.phraseArray.count == 0) {
+        
+        [self setInputMessage:@"Please fill out phrases\n"];
+        
+    } else {
+        
+        NSMutableDictionary *shakeListData = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.shakeListTitleTextField.text, @"title", nil];
+        [shakeListData setObject:[NSString stringWithFormat:@"%ld", self.listSaveTypeSegment.selectedSegmentIndex] forKey:@"type"];
+        [shakeListData setObject:[NSString stringWithFormat:@"%d", (int)nfsw_checked] forKey:@"nfsw"];
+        [shakeListData setObject:[NSString stringWithFormat:@"%d", (int)g_rated_checked] forKey:@"g-rated"];
+        [shakeListData setObject:self.tokens forKey:@"tags"];
+        [shakeListData setObject:[NSString stringWithFormat:@"%d", (int)self.phraseSelectionSegment.selectedSegmentIndex] forKey:@"phrase-selection"];
+        [shakeListData setObject:self.phraseArray forKey:@"phrases"];
+        
+        NSLog(@"shakelistdata result : \n %@", shakeListData);
+        
+        // Connect to firebase.
+        Firebase *ref = [[Firebase alloc] initWithUrl:@"https://develop-shakelist.firebaseio.com"];
+        
+        Firebase *postRef = [ref childByAppendingPath:@"shake-lists"];
+        Firebase *post1Ref = [postRef childByAutoId];
+        
+        [post1Ref setValue:shakeListData withCompletionBlock:^(NSError *error, Firebase *ref) {
+            if (error) {
+                [self.navigationController.view makeToast:@"Data could not be saved."];
+            } else {
+                [self.navigationController.view makeToast:@"Data saved successfully."];
+                [self performSelector:@selector(pushViewController) withObject:nil afterDelay:2.0];
+                
+            }
+        }];
+    }
+}
 
-    NSLog(@"shakelistdata result : \n %@", shakeListData);
+// Push this viewcontroller after save the data.
+- (void)pushViewController {
     
-    // Connect to firebase.
-    Firebase *ref = [[Firebase alloc] initWithUrl:@"https://develop-shakelist.firebaseio.com"];
+    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MyShakeLIstController"];
+    [self.navigationController pushViewController:controller animated:YES];
     
-    Firebase *postRef = [ref childByAppendingPath:@"shake-lists"];
-    Firebase *post1Ref = [postRef childByAutoId];
-    [post1Ref setValue:shakeListData];
+}
+
+// Show the error messages for textfield.
+- (void)setInputMessage:(NSString *) messageStr {
     
-    [post1Ref setValue:shakeListData withCompletionBlock:^(NSError *error, Firebase *ref) {
-        if (error) {
-            [self.navigationController.view makeToast:@"Data could not be saved."];
-        } else {
-            [self.navigationController.view makeToast:@"Data saved successfully."];
-        }
-    }];
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:@"Input Message"
+                                 message:messageStr
+                                 preferredStyle:UIAlertControllerStyleAlert];
     
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:@"OK"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action)
+                               {
+                                   //Handel your yes please button action here
+                               }];
+    [alert addAction:okButton];
     
-    //    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MyShakeLIstController"];
-    //    [self.navigationController pushViewController:controller animated:YES];
+    [self presentViewController:alert animated:YES completion:nil];
+    
 }
 
 - (IBAction)nfswButtonClicked:(id)sender {
@@ -167,7 +203,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UIScrollViewDecelerationRateFast];
+    //    [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UIScrollViewDecelerationRateFast];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -191,12 +227,28 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    NSLog(@"Textfield Tag : %d", textField.tag);
-
-    if (textField.tag >= self.phraseArray.count) {
-        [self.phraseArray addObject:textField.text];
-
+    NSLog(@"Textfield Tag : %ld", (long)textField.tag);
+    
+    if (textField.tag == -100) {
+        return;
+        
+    } else if (textField.tag >= self.phraseArray.count) {
+        
+        if (![textField.text isEqualToString:@""]) {
+            [self.phraseArray addObject:textField.text];
+            self.phrasesLabel.text = [NSString stringWithFormat:@"Phrases (%lu)", (unsigned long)self.phraseArray.count];
+            
+            if (cellNumber > self.phraseArray.count) {
+                return;
+            }
+            cellNumber++;
+            NSLog(@"%ld", (long)cellNumber);
+            
+            [self.phraseTableView reloadData];
+        }
+        
     } else {
+        
         [self.phraseArray replaceObjectAtIndex:textField.tag withObject:textField.text];
     }
 }
@@ -205,7 +257,7 @@
 #pragma mark checkbox image setting
 
 - (void) setNFSWCheckboxImage:(BOOL) check_flag {
-
+    
     NSString *imgNameStr;
     if (check_flag) {
         imgNameStr = @"checkbox_on.png";

@@ -169,7 +169,7 @@
 				4E34D0141C7AF1B600CE563A /* LaunchScreen.storyboard */,
 				4E673B0B1C7DC3E000511E79 /* TokenView.xib */,
 				4E34D0171C7AF1B600CE563A /* Info.plist */,
-				4E673B071C7DC31700511E79 /* TextFieldClasses */,
+				4E673B071C7DC31700511E79 /* TagFieldClasses */,
 				4E35639A1C7CAD8900512AD4 /* TableViewCell */,
 				4EFF21001C7F043C000D5853 /* Toast */,
 				4EBD0D3D1C7C0F6000D5B58F /* Resources */,
@@ -229,12 +229,13 @@
 			name = TableViewCell;
 			sourceTree = "<group>";
 		};
-		4E673B071C7DC31700511E79 /* TextFieldClasses */ = {
+		4E673B071C7DC31700511E79 /* TagFieldClasses */ = {
 			isa = PBXGroup;
 			children = (
 				4E673B081C7DC31700511E79 /* ZFTokenField.h */,
 				4E673B091C7DC31700511E79 /* ZFTokenField.m */,
 			);
+			name = TagFieldClasses;
 			path = TextFieldClasses;
 			sourceTree = "<group>";
 		};

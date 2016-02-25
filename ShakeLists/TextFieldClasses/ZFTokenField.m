@@ -85,6 +85,7 @@
     
     self.textField = [[ZFTokenTextField alloc] init];
     self.textField.borderStyle = UITextBorderStyleNone;
+    self.textField.placeholder = @"  Enter here.";
     self.textField.backgroundColor = [UIColor clearColor];
     self.textField.delegate = self;
     [self.textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
