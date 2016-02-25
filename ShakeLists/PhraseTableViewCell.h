@@ -14,6 +14,4 @@
 @property (weak, nonatomic) IBOutlet UIButton *delButton;
 @property (weak, nonatomic) IBOutlet UITextField *phraseText;
 
-- (IBAction)deletePhraseCell:(id)sender;
-
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController {
+@interface ViewController : UIViewController <UITextFieldDelegate> {
     NSInteger cellNumber;
     NSIndexPath* cellIndexPath;
     BOOL nfsw_checked;
@@ -19,8 +19,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 @property (weak, nonatomic) IBOutlet UITextField *shakeListTitleTextField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *listSaveTypeSegment;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *phraseSelectionSegment;
 @property (weak, nonatomic) IBOutlet UIButton *nfswCheckbox;
 @property (weak, nonatomic) IBOutlet UIButton *gRatedCheckbox;
+@property (nonatomic, strong) NSMutableArray *phraseArray;
 
 - (IBAction)addPhraseTableCell:(id)sender;
 - (IBAction)createNewShakeList:(id)sender;
