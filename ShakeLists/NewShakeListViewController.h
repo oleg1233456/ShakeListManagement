@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  NewShakeListViewController.h
 //  ShakeLists
 //
 //  Created by Software Superstar on 2/21/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UITextFieldDelegate> {
+@interface NewShakeListViewController : UIViewController <UITextFieldDelegate> {
     NSInteger cellNumber;
     NSIndexPath* cellIndexPath;
     BOOL nfsw_checked;

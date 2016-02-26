@@ -1,12 +1,12 @@
 //
-//  ViewController.m
+//  NewShakeListViewController.m
 //  ShakeLists
 //
 //  Created by Software Superstar on 2/21/16.
 //  Copyright © 2016 Software Superstar. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "NewShakeListViewController.h"
 #import "PhraseTableViewCell.h"
 #import "MyShakeListViewController.h"
 #import <Firebase/Firebase.h>
@@ -14,12 +14,12 @@
 #import "ZFTokenField.h"
 #import "UIView+Toast.h"
 
-@interface ViewController () <ZFTokenFieldDataSource, ZFTokenFieldDelegate>
+@interface NewShakeListViewController () <ZFTokenFieldDataSource, ZFTokenFieldDelegate>
 @property (weak, nonatomic) IBOutlet ZFTokenField *tokenField;
 @property (nonatomic, strong) NSMutableArray *tokens;
 @end
 
-@implementation ViewController
+@implementation NewShakeListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -122,7 +122,7 @@
 // Push this viewcontroller after save the data.
 - (void)pushViewController {
     
-    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MyShakeLIstController"];
+    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MyShakeListController"];
     [self.navigationController pushViewController:controller animated:YES];
     
 }

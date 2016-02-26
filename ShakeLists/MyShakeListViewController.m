@@ -10,7 +10,13 @@
 #import "ShakeListTableViewCell.h"
 #import <Firebase/Firebase.h>
 
+#import "LMContainsLMComboxScrollView.h"
+
 @interface MyShakeListViewController ()
+{
+    IBOutlet LMContainsLMComboxScrollView *bgScrollView;
+    NSMutableDictionary *addressDict;
+}
 
 @end
 
@@ -23,7 +29,21 @@
 //    [self.view bringSubviewToFront:self.shakeListTableView];
     self.loadingIndicator.hidden = NO;
     list_count = 0;
-    
+
+    // Set up the sort-by combo box
+    NSLog(@"sortby label position : %f", self.view.frame.size.width
+          );
+    bgScrollView = [[LMContainsLMComboxScrollView alloc]
+                    initWithFrame:CGRectMake(0, 0, 100, 200)];
+    bgScrollView.backgroundColor = [UIColor clearColor];
+    bgScrollView.showsVerticalScrollIndicator = NO;
+    bgScrollView.showsHorizontalScrollIndicator = NO;
+    [self.comboxView addSubview:bgScrollView];
+//    bgScrollView.layer.zPosition = 10;
+    self.shakeListTableView.layer.zPosition = 0;
+
+    [self setUpBgScrollView];
+
     // Get the sakelist data from the firebse.
     Firebase *ref = [[Firebase alloc] initWithUrl: @"https://develop-shakelist.firebaseio.com/shake-lists"];
 
@@ -60,6 +80,21 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)setUpBgScrollView {
+    LMComBoxView *comBox = [[LMComBoxView alloc]initWithFrame:CGRectMake(10, 8, 80, 30)];
+    comBox.backgroundColor = [UIColor whiteColor];
+    comBox.arrowImgName = @"down_dark0.png";
+    NSMutableArray *itemsArray = [NSMutableArray array];
+    [itemsArray addObject:@"user"];
+    [itemsArray addObject:@"title"];
+    comBox.titlesList = itemsArray;
+    comBox.delegate = self;
+    comBox.supView = bgScrollView;
+    [comBox defaultSettings];
+    [bgScrollView addSubview:comBox];
+}
+
 
 #pragma mark - Phrase tabel view data source
 
@@ -104,6 +139,12 @@
     
     return 800; // or any number based on your estimation
 }
+
+#pragma mark -LMComBoxViewDelegate
+-(void)selectAtIndex:(int)index inCombox:(LMComBoxView *)_combox {
+    NSLog(@"combox index : %d", index);
+}
+
 
 /*
  #pragma mark - Navigation
