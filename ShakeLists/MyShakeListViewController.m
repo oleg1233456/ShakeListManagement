@@ -8,6 +8,7 @@
 
 #import "MyShakeListViewController.h"
 #import "ShakeListTableViewCell.h"
+#import <Firebase/Firebase.h>
 
 @interface MyShakeListViewController ()
 
@@ -19,8 +20,40 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.view bringSubviewToFront:self.shakeListTableView];
+//    [self.view bringSubviewToFront:self.shakeListTableView];
+    self.loadingIndicator.hidden = NO;
+    list_count = 0;
     
+    // Get the sakelist data from the firebse.
+    Firebase *ref = [[Firebase alloc] initWithUrl: @"https://develop-shakelist.firebaseio.com/shake-lists"];
+
+    [ref observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        // do some stuff once
+        NSLog(@"single result : %@", snapshot.value);
+        self.listMutableArray = [NSMutableArray array];
+        
+        for ( FDataSnapshot *child in snapshot.children) {
+            
+            NSDictionary *dict = child.value; //or craft an object instead of dict
+            
+            [self.listMutableArray addObject:dict];
+        }
+        
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"author" ascending:YES]; //sort by date key, descending
+        NSArray *arrayOfDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        
+        [self.listMutableArray sortUsingDescriptors: arrayOfDescriptors];
+        
+        NSLog(@"result array : %@", self.listMutableArray);
+        
+        list_count = self.listMutableArray.count;
+        self.loadingIndicator.hidden = YES;
+
+        // Reload the shake list table.
+        [self.shakeListTableView reloadData];
+        
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,7 +70,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return list_count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -55,9 +88,14 @@
     cell.shakeImageView.image = [UIImage imageNamed:@"profile_icon.png"];
     cell.shakeImageView.layer.cornerRadius = 12;
     cell.shakeImageView.clipsToBounds = YES;
-    cell.titleLabel.text = @"Golden State Rules";
+    cell.titleLabel.text = [[self.listMutableArray objectAtIndex:indexPath.row] objectForKey:@"title"];
     cell.userNameLabel.text = @"by You";
-    cell.phrasesCountLabel.text = @"5 phrases";
+    NSMutableArray *phraseArray = [[self.listMutableArray objectAtIndex:indexPath.row] objectForKey:@"phrases"];
+    NSInteger phrase_count = phraseArray.count;
+    if (phraseArray == nil) {
+        phrase_count = 0;
+    }
+    cell.phrasesCountLabel.text = [NSString stringWithFormat:@"%ld phrases", (long)phrase_count];
     
     return cell;
 }
@@ -77,4 +115,6 @@
  }
  */
 
+- (IBAction)testSetting:(id)sender {
+}
 @end

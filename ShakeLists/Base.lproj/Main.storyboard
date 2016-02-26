@@ -867,7 +867,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by You" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JQ-HT-Uz3">
                                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <variation key="widthClass=compact" fixedFrame="YES">
                                                                 <rect key="frame" x="51" y="38" width="325" height="21"/>
@@ -876,7 +876,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 phrases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCJ-KN-WWX">
                                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <variation key="widthClass=compact" fixedFrame="YES">
                                                                 <rect key="frame" x="51" y="60" width="339" height="21"/>
@@ -885,7 +885,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Golden state Rules Golden state Rules Golden state Rules Golden state Rules Golden state Rules Golden state Rules " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26P-jd-Sz5">
                                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <variation key="widthClass=compact" fixedFrame="YES">
                                                                 <rect key="frame" x="51" y="15" width="333" height="22"/>
@@ -910,6 +910,7 @@
                                                     </variation>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="phrasesCountLabel" destination="fCJ-KN-WWX" id="Bt6-lt-CIL"/>
                                                     <outlet property="shakeImageView" destination="E6Z-et-ZTV" id="dZx-B5-NZ7"/>
                                                     <outlet property="titleLabel" destination="26P-jd-Sz5" id="laf-90-hPL"/>
                                                     <outlet property="userNameLabel" destination="3JQ-HT-Uz3" id="oKd-fk-ufV"/>
@@ -997,6 +998,10 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9uf-AX-BI2">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1005,7 +1010,9 @@
                             <constraint firstItem="sMS-aJ-gOv" firstAttribute="leading" secondItem="a6U-h8-Mlm" secondAttribute="leading" id="Xob-y7-sgN"/>
                             <constraint firstItem="pWD-yi-cYD" firstAttribute="centerX" secondItem="a6U-h8-Mlm" secondAttribute="centerX" id="aVn-Sg-ula"/>
                             <constraint firstItem="pWD-yi-cYD" firstAttribute="leading" secondItem="sMS-aJ-gOv" secondAttribute="leading" id="csh-bp-DOs"/>
+                            <constraint firstItem="9uf-AX-BI2" firstAttribute="centerX" secondItem="a6U-h8-Mlm" secondAttribute="centerX" id="eUA-zT-a11"/>
                             <constraint firstItem="sMS-aJ-gOv" firstAttribute="top" secondItem="h55-iA-nan" secondAttribute="bottom" id="jZn-Ap-aic"/>
+                            <constraint firstItem="9uf-AX-BI2" firstAttribute="centerY" secondItem="a6U-h8-Mlm" secondAttribute="centerY" id="lUu-hM-IN8"/>
                             <constraint firstItem="pWD-yi-cYD" firstAttribute="trailing" secondItem="sMS-aJ-gOv" secondAttribute="trailing" id="tGE-MH-lEu"/>
                             <constraint firstItem="pWD-yi-cYD" firstAttribute="top" secondItem="h55-iA-nan" secondAttribute="bottom" constant="65" id="uOk-pi-gFz">
                                 <variation key="widthClass=compact" constant="67"/>
@@ -1016,34 +1023,40 @@
                             <mask key="subviews">
                                 <exclude reference="sMS-aJ-gOv"/>
                                 <exclude reference="pWD-yi-cYD"/>
+                                <exclude reference="9uf-AX-BI2"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="2O1-Aa-O3y"/>
-                                <exclude reference="xUa-SV-QIo"/>
+                                <exclude reference="NOs-Q1-CXv"/>
+                                <exclude reference="Xob-y7-sgN"/>
+                                <exclude reference="jZn-Ap-aic"/>
                                 <exclude reference="aVn-Sg-ula"/>
                                 <exclude reference="csh-bp-DOs"/>
                                 <exclude reference="tGE-MH-lEu"/>
                                 <exclude reference="uOk-pi-gFz"/>
-                                <exclude reference="NOs-Q1-CXv"/>
-                                <exclude reference="Xob-y7-sgN"/>
-                                <exclude reference="jZn-Ap-aic"/>
+                                <exclude reference="xUa-SV-QIo"/>
+                                <exclude reference="eUA-zT-a11"/>
+                                <exclude reference="lUu-hM-IN8"/>
+                                <exclude reference="2O1-Aa-O3y"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="sMS-aJ-gOv"/>
                                 <include reference="pWD-yi-cYD"/>
+                                <include reference="9uf-AX-BI2"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="2O1-Aa-O3y"/>
-                                <include reference="xUa-SV-QIo"/>
+                                <include reference="NOs-Q1-CXv"/>
+                                <include reference="Xob-y7-sgN"/>
+                                <include reference="jZn-Ap-aic"/>
                                 <include reference="aVn-Sg-ula"/>
                                 <include reference="csh-bp-DOs"/>
                                 <include reference="tGE-MH-lEu"/>
                                 <include reference="uOk-pi-gFz"/>
-                                <include reference="NOs-Q1-CXv"/>
-                                <include reference="Xob-y7-sgN"/>
-                                <include reference="jZn-Ap-aic"/>
+                                <include reference="xUa-SV-QIo"/>
+                                <include reference="eUA-zT-a11"/>
+                                <include reference="lUu-hM-IN8"/>
+                                <include reference="2O1-Aa-O3y"/>
                             </mask>
                         </variation>
                     </view>
@@ -1054,11 +1067,12 @@
                         <barButtonItem key="rightBarButtonItem" image="setting_icon.png" id="2Kj-pf-fD2">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="createNewShakeList:" destination="BYZ-38-t0r" id="wD6-lu-1GG"/>
+                                <action selector="testSetting:" destination="8uD-fj-vC1" id="rFO-4d-JiW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="loadingIndicator" destination="9uf-AX-BI2" id="viA-iX-auv"/>
                         <outlet property="shakeListTableView" destination="KT3-fN-lVN" id="RlB-sG-BfB"/>
                     </connections>
                 </viewController>

@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyShakeListViewController : UIViewController
+@interface MyShakeListViewController : UIViewController {
+    
+    NSInteger list_count;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *shakeListTableView;
+@property (nonatomic, strong) NSMutableArray *listMutableArray;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+
+- (IBAction)testSetting:(id)sender;
 
 @end
