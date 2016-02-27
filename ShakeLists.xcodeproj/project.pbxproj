@@ -28,11 +28,13 @@
 		4E6721B91C8071FB004402DD /* down_dark0.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6721B81C8071FB004402DD /* down_dark0.png */; };
 		4E6721BE1C8099CB004402DD /* SearchShakeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6721BD1C8099CB004402DD /* SearchShakeListViewController.m */; };
 		4E6721C01C80C8BA004402DD /* search_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6721BF1C80C8BA004402DD /* search_icon.png */; };
+		4E6721C31C80FDDA004402DD /* SearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6721C21C80FDDA004402DD /* SearchResultTableViewCell.m */; };
 		4E673AFE1C7D8A0900511E79 /* MyShakeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E673AFD1C7D8A0900511E79 /* MyShakeListViewController.m */; };
 		4E673B001C7D907E00511E79 /* back_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E673AFF1C7D907E00511E79 /* back_icon.png */; };
 		4E673B021C7D99AB00511E79 /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E673B011C7D99AB00511E79 /* profile_icon.png */; };
 		4E673B0A1C7DC31700511E79 /* ZFTokenField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E673B091C7DC31700511E79 /* ZFTokenField.m */; };
 		4E673B0C1C7DC3E000511E79 /* TokenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E673B0B1C7DC3E000511E79 /* TokenView.xib */; };
+		4E73E5B21C8173F5002A5E5F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E73E5B11C8173F5002A5E5F /* LoginViewController.m */; };
 		4EBD0D441C7C109D00D5B58F /* menu_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBD0D421C7C109D00D5B58F /* menu_icon.png */; };
 		4EBD0D471C7C10FC00D5B58F /* save_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBD0D461C7C10FC00D5B58F /* save_icon.png */; };
 		4EBD0D491C7C1E6700D5B58F /* line_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBD0D481C7C1E6700D5B58F /* line_img.png */; };
@@ -96,6 +98,8 @@
 		4E6721BC1C8099CB004402DD /* SearchShakeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchShakeListViewController.h; sourceTree = "<group>"; };
 		4E6721BD1C8099CB004402DD /* SearchShakeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchShakeListViewController.m; sourceTree = "<group>"; };
 		4E6721BF1C80C8BA004402DD /* search_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_icon.png; sourceTree = "<group>"; };
+		4E6721C11C80FDDA004402DD /* SearchResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultTableViewCell.h; sourceTree = "<group>"; };
+		4E6721C21C80FDDA004402DD /* SearchResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultTableViewCell.m; sourceTree = "<group>"; };
 		4E673AFC1C7D8A0900511E79 /* MyShakeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyShakeListViewController.h; sourceTree = "<group>"; };
 		4E673AFD1C7D8A0900511E79 /* MyShakeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyShakeListViewController.m; sourceTree = "<group>"; };
 		4E673AFF1C7D907E00511E79 /* back_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_icon.png; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 		4E673B081C7DC31700511E79 /* ZFTokenField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFTokenField.h; sourceTree = "<group>"; };
 		4E673B091C7DC31700511E79 /* ZFTokenField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFTokenField.m; sourceTree = "<group>"; };
 		4E673B0B1C7DC3E000511E79 /* TokenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TokenView.xib; sourceTree = "<group>"; };
+		4E73E5B01C8173F5002A5E5F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		4E73E5B11C8173F5002A5E5F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		4EBD0D421C7C109D00D5B58F /* menu_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_icon.png; sourceTree = "<group>"; };
 		4EBD0D461C7C10FC00D5B58F /* save_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save_icon.png; sourceTree = "<group>"; };
 		4EBD0D481C7C1E6700D5B58F /* line_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line_img.png; sourceTree = "<group>"; };
@@ -179,6 +185,8 @@
 				4E673AFD1C7D8A0900511E79 /* MyShakeListViewController.m */,
 				4E6721BC1C8099CB004402DD /* SearchShakeListViewController.h */,
 				4E6721BD1C8099CB004402DD /* SearchShakeListViewController.m */,
+				4E73E5B01C8173F5002A5E5F /* LoginViewController.h */,
+				4E73E5B11C8173F5002A5E5F /* LoginViewController.m */,
 				4E34D00F1C7AF1B600CE563A /* Main.storyboard */,
 				4E34D0121C7AF1B600CE563A /* Assets.xcassets */,
 				4E34D0141C7AF1B600CE563A /* LaunchScreen.storyboard */,
@@ -241,6 +249,8 @@
 				4E35639C1C7CADC500512AD4 /* PhraseTableViewCell.m */,
 				4EC385F21C7D0A7300110B01 /* ShakeListTableViewCell.h */,
 				4EC385F31C7D0A7300110B01 /* ShakeListTableViewCell.m */,
+				4E6721C11C80FDDA004402DD /* SearchResultTableViewCell.h */,
+				4E6721C21C80FDDA004402DD /* SearchResultTableViewCell.m */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -441,10 +451,12 @@
 			files = (
 				4EFF21031C7F043C000D5853 /* UIView+Toast.m in Sources */,
 				4E34D00E1C7AF1B600CE563A /* NewShakeListViewController.m in Sources */,
+				4E73E5B21C8173F5002A5E5F /* LoginViewController.m in Sources */,
 				4E6721B61C806F7A004402DD /* LMComBoxView.m in Sources */,
 				4E34D00B1C7AF1B600CE563A /* AppDelegate.m in Sources */,
 				4E35639D1C7CADC500512AD4 /* PhraseTableViewCell.m in Sources */,
 				4E673AFE1C7D8A0900511E79 /* MyShakeListViewController.m in Sources */,
+				4E6721C31C80FDDA004402DD /* SearchResultTableViewCell.m in Sources */,
 				4E6721B71C806F7A004402DD /* LMContainsLMComboxScrollView.m in Sources */,
 				4EC385F41C7D0A7300110B01 /* ShakeListTableViewCell.m in Sources */,
 				4E673B0A1C7DC31700511E79 /* ZFTokenField.m in Sources */,

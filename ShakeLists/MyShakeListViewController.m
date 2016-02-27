@@ -95,7 +95,6 @@
     [bgScrollView addSubview:comBox];
 }
 
-
 #pragma mark - Phrase tabel view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

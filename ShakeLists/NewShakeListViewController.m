@@ -92,24 +92,34 @@
     } else {
         
         NSMutableDictionary *shakeListData = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.shakeListTitleTextField.text, @"title", nil];
-        [shakeListData setObject:[NSString stringWithFormat:@"%ld", self.listSaveTypeSegment.selectedSegmentIndex] forKey:@"type"];
-        [shakeListData setObject:[NSString stringWithFormat:@"%d", (int)nfsw_checked] forKey:@"nfsw"];
-        [shakeListData setObject:[NSString stringWithFormat:@"%d", (int)g_rated_checked] forKey:@"g-rated"];
-        [shakeListData setObject:self.tokens forKey:@"tags"];
-        [shakeListData setObject:[NSString stringWithFormat:@"%d", (int)self.phraseSelectionSegment.selectedSegmentIndex] forKey:@"phrase-selection"];
-        [shakeListData setObject:self.phraseArray forKey:@"phrases"];
+        [shakeListData setObject:[NSString stringWithFormat:@"%ld", self.listSaveTypeSegment.selectedSegmentIndex]
+                          forKey:@"type"];
+        [shakeListData setObject:[NSString stringWithFormat:@"%d", (int)nfsw_checked]
+                          forKey:@"nfsw"];
+        [shakeListData setObject:[NSString stringWithFormat:@"%d", (int)g_rated_checked]
+                          forKey:@"g-rated"];
+        [shakeListData setObject:self.tokens
+                          forKey:@"tags"];
+        [shakeListData setObject:[NSString stringWithFormat:@"%d", (int)self.phraseSelectionSegment.selectedSegmentIndex]
+                          forKey:@"phrase-selection"];
+        [shakeListData setObject:self.phraseArray
+                          forKey:@"phrases"];
         
         NSLog(@"shakelistdata result : \n %@", shakeListData);
         
         // Connect to firebase.
-        Firebase *ref = [[Firebase alloc] initWithUrl:@"https://develop-shakelist.firebaseio.com"];
+        Firebase *ref = [[Firebase alloc] initWithUrl:@"https://develop-shakelist.firebaseio.com/shake-lists"];
         
-        Firebase *postRef = [ref childByAppendingPath:@"shake-lists"];
+        NSString* userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_NAME_KEY"];
+        
+        Firebase *postRef = [ref childByAppendingPath:userName];
         Firebase *post1Ref = [postRef childByAutoId];
         
         [post1Ref setValue:shakeListData withCompletionBlock:^(NSError *error, Firebase *ref) {
+            
             if (error) {
                 [self.navigationController.view makeToast:@"Data could not be saved."];
+                
             } else {
                 [self.navigationController.view makeToast:@"Data saved successfully."];
                 [self performSelector:@selector(pushViewController) withObject:nil afterDelay:2.0];
