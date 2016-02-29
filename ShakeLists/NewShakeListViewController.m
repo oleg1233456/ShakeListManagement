@@ -30,7 +30,7 @@
     
     self.tokenField.dataSource = self;
     self.tokenField.delegate = self;
-    self.shakeListTitleTextField.delegate = self;
+//    self.shakeListTitleTextField.delegate = self;
     self.shakeListTitleTextField.tag = -100;
     [self.tokenField reloadData];
     self.phrasesLabel.text = @"Phrases (0)";
@@ -41,7 +41,7 @@
     nfsw_checked = NO;
     g_rated_checked = NO;
     
-    Firebase *fb = [[Firebase alloc] initWithUrl:@"https://develop-shakelist.firebaseio.com/condition"];
+    Firebase *fb = [[Firebase alloc] initWithUrl:@"https://shakelist1.firebaseio.com/condition"];
     [fb observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         //        self.labelCondition.text = snapshot.value;
     }];
@@ -60,16 +60,6 @@
         [self.tokens removeObjectAtIndex:index];
         [self.tokenField reloadData];
     }
-}
-
-- (IBAction)addPhraseTableCell:(id)sender {
-    if (cellNumber > self.phraseArray.count) {
-        return;
-    }
-    cellNumber++;
-    NSLog(@"%ld", (long)cellNumber);
-    
-    [self.phraseTableView reloadData];
 }
 
 // Save and create a new shakelist.
@@ -108,7 +98,7 @@
         NSLog(@"shakelistdata result : \n %@", shakeListData);
         
         // Connect to firebase.
-        Firebase *ref = [[Firebase alloc] initWithUrl:@"https://develop-shakelist.firebaseio.com/shake-lists"];
+        Firebase *ref = [[Firebase alloc] initWithUrl:@"https://shakelist1.firebaseio.com/shake-lists"];
         
         NSString* userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_NAME_KEY"];
         
@@ -122,7 +112,24 @@
                 
             } else {
                 [self.navigationController.view makeToast:@"Data saved successfully."];
-                [self performSelector:@selector(pushViewController) withObject:nil afterDelay:2.0];
+                
+                // Save the saved data to MyShakeList.
+                NSMutableArray *myShakeListMutableAry = [NSMutableArray array];
+                
+                NSMutableArray *prevMyShakeListMutableAry = [[NSUserDefaults standardUserDefaults] objectForKey:@"MY_SHAKE_LIST"];
+                
+                for (NSDictionary *dict in prevMyShakeListMutableAry) {
+                    [myShakeListMutableAry addObject:dict];
+                }
+                
+                [shakeListData setValue:userName forKey:@"username"];
+                [myShakeListMutableAry addObject:shakeListData];
+                
+                // Add the selected shake list to my shake list.
+                [[NSUserDefaults standardUserDefaults] setObject:myShakeListMutableAry forKey:@"MY_SHAKE_LIST"];
+
+                // Push view controller.
+                [self performSelector:@selector(pushViewController) withObject:nil afterDelay:1.0];
                 
             }
         }];

@@ -12,13 +12,14 @@
 @interface MyShakeListViewController : UIViewController<LMComBoxViewDelegate> {
     
     NSInteger list_count;
+    NSString *userName;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *shakeListTableView;
-@property (nonatomic, strong) NSMutableArray *listMutableArray;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 @property (weak, nonatomic) IBOutlet UIView *comboxView;
 @property (weak, nonatomic) IBOutlet UILabel *sortByLabel;
+@property (nonatomic, strong) NSMutableArray *listMutableArray;
 
 - (IBAction)testSetting:(id)sender;
 

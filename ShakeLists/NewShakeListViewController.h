@@ -25,7 +25,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *gRatedCheckbox;
 @property (nonatomic, strong) NSMutableArray *phraseArray;
 
-- (IBAction)addPhraseTableCell:(id)sender;
 - (IBAction)createNewShakeList:(id)sender;
 - (IBAction)nfswButtonClicked:(id)sender;
 - (IBAction)gRatedButtonClicked:(id)sender;

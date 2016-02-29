@@ -9,7 +9,6 @@
 #import "MyShakeListViewController.h"
 #import "ShakeListTableViewCell.h"
 #import <Firebase/Firebase.h>
-
 #import "LMContainsLMComboxScrollView.h"
 
 @interface MyShakeListViewController ()
@@ -29,50 +28,70 @@
 //    [self.view bringSubviewToFront:self.shakeListTableView];
     self.loadingIndicator.hidden = NO;
     list_count = 0;
+    userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_NAME_KEY"];
 
     // Set up the sort-by combo box
-    NSLog(@"sortby label position : %f", self.view.frame.size.width
-          );
-    bgScrollView = [[LMContainsLMComboxScrollView alloc]
-                    initWithFrame:CGRectMake(0, 0, 100, 200)];
+    NSLog(@"sortby label position : %f", self.view.frame.size.width);
+    bgScrollView = [[LMContainsLMComboxScrollView alloc] initWithFrame:CGRectMake(0, 0, 100, 200)];
     bgScrollView.backgroundColor = [UIColor clearColor];
     bgScrollView.showsVerticalScrollIndicator = NO;
     bgScrollView.showsHorizontalScrollIndicator = NO;
     [self.comboxView addSubview:bgScrollView];
-//    bgScrollView.layer.zPosition = 10;
     self.shakeListTableView.layer.zPosition = 0;
 
     [self setUpBgScrollView];
 
-    // Get the sakelist data from the firebse.
-    Firebase *ref = [[Firebase alloc] initWithUrl: @"https://develop-shakelist.firebaseio.com/shake-lists"];
+    // Get the my shakelist result.
+    NSMutableArray *myShakeMutableAry = [[NSUserDefaults standardUserDefaults] objectForKey:@"MY_SHAKE_LIST"];
+    
+    if (myShakeMutableAry == NULL) {
 
-    [ref observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-        // do some stuff once
-        NSLog(@"single result : %@", snapshot.value);
-        self.listMutableArray = [NSMutableArray array];
+        // Get the sakelist data from the firebse.
+        Firebase *fb = [[Firebase alloc] initWithUrl: @"https://shakelist1.firebaseio.com/shake-lists"];
+        Firebase *ref = [fb childByAppendingPath:userName];
         
-        for ( FDataSnapshot *child in snapshot.children) {
+        [ref observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+            // do some stuff once
+            NSLog(@"single result : %@", snapshot.value);
+            self.listMutableArray = [NSMutableArray array];
+
+            for ( FDataSnapshot *child in snapshot.children) {
+                
+                NSDictionary *dict = child.value; //or craft an object instead of dict
+                
+                [dict setValue:userName forKey:@"username"];
+                [self.listMutableArray addObject:dict];
+            }
             
-            NSDictionary *dict = child.value; //or craft an object instead of dict
+            NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"author" ascending:YES]; //sort by date key, descending
+            NSArray *arrayOfDescriptors = [NSArray arrayWithObject:sortDescriptor];
             
-            [self.listMutableArray addObject:dict];
-        }
+            [self.listMutableArray sortUsingDescriptors: arrayOfDescriptors];
+            self.loadingIndicator.hidden = YES;
+            
+            NSLog(@"MyShakeList array : %@", self.listMutableArray);
+            
+            list_count = self.listMutableArray.count;
+            
+            // Reload the shake list table.
+            [self.shakeListTableView reloadData];
+
+            // Save the result list to default.
+            [[NSUserDefaults standardUserDefaults] setObject:self.listMutableArray forKey:@"MY_SHAKE_LIST"];
+            
+        }];
         
-        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"author" ascending:YES]; //sort by date key, descending
-        NSArray *arrayOfDescriptors = [NSArray arrayWithObject:sortDescriptor];
-        
-        [self.listMutableArray sortUsingDescriptors: arrayOfDescriptors];
-        
-        NSLog(@"result array : %@", self.listMutableArray);
+    } else {
+        self.listMutableArray = myShakeMutableAry;
+        self.loadingIndicator.hidden = YES;
+        NSLog(@"MyShakeList array : %@", self.listMutableArray);
         
         list_count = self.listMutableArray.count;
-        self.loadingIndicator.hidden = YES;
-
+        
         // Reload the shake list table.
         [self.shakeListTableView reloadData];
-        
-    }];
+    }
+    
 
 }
 
@@ -123,7 +142,7 @@
     cell.shakeImageView.layer.cornerRadius = 12;
     cell.shakeImageView.clipsToBounds = YES;
     cell.titleLabel.text = [[self.listMutableArray objectAtIndex:indexPath.row] objectForKey:@"title"];
-    cell.userNameLabel.text = @"by You";
+    cell.userNameLabel.text = [[self.listMutableArray objectAtIndex:indexPath.row] objectForKey:@"username"];
     NSMutableArray *phraseArray = [[self.listMutableArray objectAtIndex:indexPath.row] objectForKey:@"phrases"];
     NSInteger phrase_count = phraseArray.count;
     if (phraseArray == nil) {

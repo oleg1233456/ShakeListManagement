@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E14CA4D1C81DCF2003AF385 /* PreviewModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E14CA4C1C81DCF2003AF385 /* PreviewModalViewController.m */; };
 		4E34D0081C7AF1B600CE563A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E34D0071C7AF1B600CE563A /* main.m */; };
 		4E34D00B1C7AF1B600CE563A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E34D00A1C7AF1B600CE563A /* AppDelegate.m */; };
 		4E34D00E1C7AF1B600CE563A /* NewShakeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E34D00D1C7AF1B600CE563A /* NewShakeListViewController.m */; };
@@ -65,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E14CA4B1C81DCF2003AF385 /* PreviewModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewModalViewController.h; sourceTree = "<group>"; };
+		4E14CA4C1C81DCF2003AF385 /* PreviewModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewModalViewController.m; sourceTree = "<group>"; };
 		4E34D0031C7AF1B600CE563A /* ShakeLists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShakeLists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E34D0071C7AF1B600CE563A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4E34D0091C7AF1B600CE563A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -106,7 +109,7 @@
 		4E673B011C7D99AB00511E79 /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
 		4E673B081C7DC31700511E79 /* ZFTokenField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFTokenField.h; sourceTree = "<group>"; };
 		4E673B091C7DC31700511E79 /* ZFTokenField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFTokenField.m; sourceTree = "<group>"; };
-		4E673B0B1C7DC3E000511E79 /* TokenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TokenView.xib; sourceTree = "<group>"; };
+		4E673B0B1C7DC3E000511E79 /* TokenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TokenView.xib; path = ../TokenView.xib; sourceTree = "<group>"; };
 		4E73E5B01C8173F5002A5E5F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		4E73E5B11C8173F5002A5E5F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		4EBD0D421C7C109D00D5B58F /* menu_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_icon.png; sourceTree = "<group>"; };
@@ -154,6 +157,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E14CA4A1C81DC90003AF385 /* PreviewModal */ = {
+			isa = PBXGroup;
+			children = (
+				4E14CA4B1C81DCF2003AF385 /* PreviewModalViewController.h */,
+				4E14CA4C1C81DCF2003AF385 /* PreviewModalViewController.m */,
+			);
+			name = PreviewModal;
+			sourceTree = "<group>";
+		};
 		4E34CFFA1C7AF1B600CE563A = {
 			isa = PBXGroup;
 			children = (
@@ -190,8 +202,8 @@
 				4E34D00F1C7AF1B600CE563A /* Main.storyboard */,
 				4E34D0121C7AF1B600CE563A /* Assets.xcassets */,
 				4E34D0141C7AF1B600CE563A /* LaunchScreen.storyboard */,
-				4E673B0B1C7DC3E000511E79 /* TokenView.xib */,
 				4E34D0171C7AF1B600CE563A /* Info.plist */,
+				4E14CA4A1C81DC90003AF385 /* PreviewModal */,
 				4E6721B11C806F7A004402DD /* LMComBox */,
 				4E673B071C7DC31700511E79 /* TagFieldClasses */,
 				4E35639A1C7CAD8900512AD4 /* TableViewCell */,
@@ -271,6 +283,7 @@
 			children = (
 				4E673B081C7DC31700511E79 /* ZFTokenField.h */,
 				4E673B091C7DC31700511E79 /* ZFTokenField.m */,
+				4E673B0B1C7DC3E000511E79 /* TokenView.xib */,
 			);
 			name = TagFieldClasses;
 			path = TextFieldClasses;
@@ -460,6 +473,7 @@
 				4E6721B71C806F7A004402DD /* LMContainsLMComboxScrollView.m in Sources */,
 				4EC385F41C7D0A7300110B01 /* ShakeListTableViewCell.m in Sources */,
 				4E673B0A1C7DC31700511E79 /* ZFTokenField.m in Sources */,
+				4E14CA4D1C81DCF2003AF385 /* PreviewModalViewController.m in Sources */,
 				4E34D0081C7AF1B600CE563A /* main.m in Sources */,
 				4E6721BE1C8099CB004402DD /* SearchShakeListViewController.m in Sources */,
 			);

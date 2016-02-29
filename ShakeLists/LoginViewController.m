@@ -19,9 +19,12 @@
     // Do any additional setup after loading the view.
 
     NSString* userNameStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_NAME_KEY"];
-    self.view.hidden = YES;
+    self.view.hidden = NO;
+    
+    self.userNameTextView.delegate = self;
+    self.passwordTextView.delegate = self;
 
-    if (![userNameStr isEqualToString:@""]) {
+    if (userNameStr != nil) {
 
         self.view.hidden = YES;
         UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MyShakeListController"];
@@ -43,6 +46,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark Textfield delegate.
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+.0    [textField resignFirstResponder];
+    return YES;
+}
 
 - (IBAction)loginUser:(id)sender {
     if ([self.userNameTextView.text isEqualToString:@""]) {
