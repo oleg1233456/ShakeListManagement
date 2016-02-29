@@ -50,7 +50,7 @@
 #pragma mark Textfield delegate.
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
-.0    [textField resignFirstResponder];
+    [textField resignFirstResponder];
     return YES;
 }
 
